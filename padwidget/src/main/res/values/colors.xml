@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 白色和黑色 -->
+    <color name="white">#FFFFFF</color>
+    <color name="black_text">#DE000000</color>
+    <color name="red">#ff0000</color>
+    <color name="black">#000000</color>
+    <!--半透明-->
+    <color name="translucent_pressed">#22000000</color>
+
+    <!--半透明-->
+    <color name="translucent_black">#11000000</color>
+    <!--标题背景色#4F5F6F #41919C-->
+    <color name="title_bg">#5f82ab</color>
+
+    <!-- androidwheel用到的 -->
+    <color name="province_line_border">#C7C7C7</color>
+    <color name="ccc_black_textcolor">#111111</color>
+
+    <color name="dialog_title_bg">#A7C3E1</color>
+
+    <color name="divider_color">#8A96A3</color>
+
+    <!--verticalTabLayout-->
+    <color name="vertical_indicator">#FF4081</color>
+
+    <color name="recover_msginfo">#B06061</color>
+
+    <color name="cc_light">#10000000</color>
+    <color name="ccc_gray_light_color">#888888</color>
+    <color name="light_gray">#77c0c0c0</color>
+    <color name="cabinet_status_sel">#3B9B8C</color>
+
+    <color name="cc_text_dark">#ff7c7c7c</color>
+    <color name="cc_text_blank">#ff4b4b4b</color>
+    <color name="cc_list_title_bk">#fff0f0f0</color>
+    <color name="cc_lay_pressed_untran_dark">#fff5f5f5</color>
+    <color name="cc_line">#11000000</color>
+
+    <color name="num_btn_bg">#FF9F01</color>
+</resources>

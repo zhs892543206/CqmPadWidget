@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自定义虚线-->
+    <declare-styleable name="DashView">
+        <!-- Minimum size of the text. -->
+        <attr name="dashOrientation" format="integer" />
+        <attr name="lineColor" format="color" />
+        <attr name="dashWidth" format="dimension"/>
+        <attr name="lineHeight" format="dimension"/>
+        <attr name="lineWidth" format="dimension"/>
+    </declare-styleable>
+    <!--数据输入控件包含加减-->
+    <declare-styleable name="NumberButton">
+        <attr name="editable" format="boolean"/>
+        <attr name="buttonWidth" format="dimension" />
+        <attr name="editextWidth" format="dimension" />
+        <attr name="textSize" format="dimension"/>
+        <attr name="textColor" format="color"/>
+        <attr name="backgroud" format="reference"/>
+        <attr name="individer" format="reference"/>
+        <attr name="addBackground" format="reference"/>
+        <attr name="subBackground" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="AutofitTextView">
+        <!-- Minimum size of the text. -->
+        <attr name="minTextSize" format="dimension" />
+        <!-- Amount of precision used to calculate the correct text size to fit within its
+        bounds. Lower precision is more precise and takes more time. -->
+        <attr name="precision" format="float" />
+        <!-- Defines whether to automatically resize text to fit to the view's bounds. -->
+        <attr name="sizeToFit" format="boolean" />
+    </declare-styleable>
+
+    <!--竖直方向的tablayout，网上github上的-->
+    <declare-styleable name="VerticalTabLayout">
+        <attr name="indicator_color" format="color" />
+        <attr name="indicator_width" format="dimension" />
+        <attr name="indicator_corners" format="dimension" />
+        <attr name="indicator_gravity" format="enum">
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+            <enum name="fill" value="119" />
+        </attr>
+        <attr name="tab_margin" format="dimension" />
+        <attr name="tab_mode" format="enum">
+            <enum name="fixed" value="10" />
+            <enum name="scrollable" value="11" />
+        </attr>
+        <attr name="tab_height" format="dimension">
+        </attr>
+    </declare-styleable>
+
+    <!--MyMsgInfoView控件-->
+    <declare-styleable name="MyMsgInfoView"><!--要和自定义类名字一样-->
+        <attr name="text" format="string"></attr>
+        <attr name="textsize"  format="float"></attr><!--布局里传过来时已经是sp值了-->
+        <attr name="textcolor" format="reference"></attr>
+    </declare-styleable>
+
+
+    <!-- CircleTextImageView库用到 -->
+    <declare-styleable name="CircleTextImageView">
+        <attr name="citv_border_width" format="dimension" />
+        <attr name="citv_border_color" format="color" />
+        <attr name="citv_border_overlay" format="boolean" />
+        <attr name="citv_fill_color" format="color" />
+        <attr name="citv_text_text" format="string"/>
+        <attr name="citv_text_color" format="color"/>
+        <attr name="citv_text_size" format="dimension"/>
+        <attr name="citv_text_padding" format="dimension"/>
+        <attr name="citv_img_padding" format="dimension"/>
+        <attr name="citv_bitmap" format="reference"/>
+
+        <attr name="citv_scaletype">
+            <enum name="matrix" value="0" />
+            <enum name="fitXY" value="1" />
+            <enum name="fitStart" value="2" />
+            <enum name="fitCenter" value="3" />
+            <enum name="fitEnd" value="4" />
+            <enum name="center" value="5" />
+            <enum name="centerCrop" value="6" />
+            <enum name="centerInside" value="7" />
+
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="LeftTxtEditText">
+        <!-- Minimum size of the text. -->
+        <attr name="left_text" format="string" />
+        <attr name="left_text_color" format="color" />
+        <attr name="left_text_size" format="dimension"/>
+        <attr name="leftdrawable_paddingleft" format="dimension"/>
+        <attr name="leftdrawable_paddingtop" format="dimension"/>
+        <attr name="leftdrawable_paddingbottom" format="dimension"/>
+        <attr name="leftdrawable_paddingright" format="dimension"/>
+        <attr name="leftdrawable_padding" format="dimension"/>
+        <attr name="compounddrawable_padding" format="dimension"/>
+    </declare-styleable>
+</resources>

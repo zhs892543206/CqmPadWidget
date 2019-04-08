@@ -1,0 +1,5 @@
+<resources>
+    <string name="cqmpadwidget_article_sel">选择物品</string>
+    <string name="cqmpadwidget_confirm">确认</string>
+    <string name="cqmpadwidget_cancel">取消</string>
+</resources>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    
+	       >
+    <LinearLayout 
+         android:id="@+id/dialog_title_linearly" 
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+    
+      	>
+        <TextView
+            android:id="@+id/dialog_title_name"  
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cqmpadwidget_confirm"
+            android:textColor="@color/white"
+            android:textSize="@dimen/widget_title_txtsize"
+            android:padding="@dimen/widget_padding"
+            android:layout_margin="@dimen/widget_margin"/>
+    </LinearLayout>
+    <View 
+         android:id="@+id/dialog_title_divice"
+        android:layout_width="match_parent"
+           android:layout_height="4dp"
+           android:layout_marginTop="@dimen/widget_padding"
+           android:background="@color/title_bg"
+           android:layout_below="@id/dialog_title_linearly"/>
+    <LinearLayout
+	    android:id="@+id/dialog_address_select_ly"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+      
+        android:orientation="horizontal"
+			android:layout_below="@+id/dialog_title_divice"
+         >
+
+        <com.ewell.padwidget.androidwheel.WheelView
+            android:id="@+id/id_province"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+        </com.ewell.padwidget.androidwheel.WheelView>
+
+        <com.ewell.padwidget.androidwheel.WheelView
+            android:id="@+id/id_city"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+        </com.ewell.padwidget.androidwheel.WheelView>
+
+    </LinearLayout>
+         
+ 
+     <View 
+         android:id="@+id/dialog_divice"
+        android:layout_width="match_parent"
+           android:layout_height="2dp"
+           android:background="@color/title_bg"
+           android:layout_below="@id/dialog_address_select_ly"/>
+	 <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ccc_widget_height"
+        android:orientation="horizontal"
+        
+        android:layout_below="@id/dialog_divice"
+		>
+        
+           <Button 
+            android:id="@+id/login_confirm_btn"
+            android:layout_width="0dp" 
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@drawable/selector_view_form_white"
+            android:text="@string/cqmpadwidget_cancel"
+ 			android:padding="@dimen/widget_padding"
+            android:textSize="@dimen/widget_title_txtsize"
+            android:textColor="@color/white"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
+</RelativeLayout>

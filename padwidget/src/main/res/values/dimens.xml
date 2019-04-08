@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name ="ccc_title_textsize">30sp</dimen>
+    <dimen name ="ccc_widget_textsize">20sp</dimen>
+    <dimen name="ccc_widget_height">48dp</dimen>
+    <dimen name ="ccc_widget_textsize_small">12sp</dimen>
+    <dimen name="widget_margin">4dp</dimen>
+    <dimen name="widget_padding">8dp</dimen>
+    <dimen name="widget_txtsize">14sp</dimen>
+    <dimen name="widget_title_txtsize">18sp</dimen>
+    <dimen name ="ccc_focus_textsize_size">24sp</dimen>
+    <!-- 异常回收按键外边距 -->
+    <!-- <dimen name="keyboard_margin">0.5dp</dimen>-->
+    <dimen name="keyboard_btn_padding">10dp</dimen>
+
+    <dimen name="vertical_margin">16dp</dimen>
+
+    <dimen name="ccc_confrimbtn_radius">8dp</dimen>
+
+</resources>
