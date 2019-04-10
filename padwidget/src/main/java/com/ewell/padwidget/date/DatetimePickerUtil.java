@@ -39,9 +39,12 @@ public class DatetimePickerUtil {
 	//TIME:时分秒
 	//DATETIME：年月日 时分秒
 	//TIME_HM： 时分
-	public enum PopupType {DATE, TIME, DATETIME,TIME_HM} 
-	public static void  showPopwindow(PopupType type, View backview, Activity act) {
+	public enum PopupType {DATE, TIME, DATETIME,TIME_HM}
+	public static void  showPopwindow(PopupType type,View backview,Activity act) {
 		showPopwindow(type,backview,act,null);
+	}
+	public static void  showPopwindow( PopupType type,View backview,Context context,Handler handler) {
+		showPopwindow(1950, Calendar.getInstance().get(Calendar.YEAR)+2, type, backview, context, handler);
 	}
 	/**
 	 * 初始化popupWindow
@@ -49,7 +52,7 @@ public class DatetimePickerUtil {
 	 * 2.回置的view
 	 * handler真要传也不要传网络请求用的那个好
 	 */
-	public static void  showPopwindow(PopupType type, View backview, Context context, Handler handler) {
+	public static void  showPopwindow(int startYear,int endYear,  PopupType type, View backview, Context context, Handler handler) {
 		inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		currentDatePicker = backview;
 		currentHandler = handler;
@@ -57,7 +60,7 @@ public class DatetimePickerUtil {
 		switch(type) 
 		{ 
 		case DATE:
-			view = getDatePick(((TextView) currentDatePicker).getText().toString());
+			view = getDatePick(startYear, endYear, ((TextView) currentDatePicker).getText().toString());
 			break;
 		case TIME:
 			view = getTimePick(((TextView) currentDatePicker).getText().toString());
@@ -69,7 +72,7 @@ public class DatetimePickerUtil {
 			view = getTimeHmPick(((TextView) currentDatePicker).getText().toString());
 		    break;		    
 		default:
-			view = getDatePick(((TextView) currentDatePicker).getText().toString());
+			view = getDatePick(startYear, endYear, ((TextView) currentDatePicker).getText().toString());
             break; 
 		} 		
 		if(menuWindow!=null){
@@ -243,7 +246,7 @@ public class DatetimePickerUtil {
 	 * 
 	 * @return
 	 */
-	public static View getDatePick(String dateStr) {
+	public static View getDatePick(final int startYear, int endYear, String dateStr) {
 		Calendar c = Calendar.getInstance();
 		int curYear = c.get(Calendar.YEAR);
 		int curMonth = c.get(Calendar.MONTH) + 1;// 通过Calendar算出的月数要+1
@@ -256,7 +259,7 @@ public class DatetimePickerUtil {
 		final View view = inflater.inflate(R.layout.datapick, null);
 
 		year = (TimeWheelView) view.findViewById(R.id.year);
-		year.setAdapter(new NumericWheelAdapter(1950, c.get(Calendar.YEAR)+2));
+		year.setAdapter(new NumericWheelAdapter(startYear, endYear));
 		year.setLabel("年");
 		year.setCyclic(true);
 		year.addScrollingListener(scrollListener);
@@ -272,7 +275,7 @@ public class DatetimePickerUtil {
 		day.setLabel("日");
 		day.setCyclic(true);
 
-		year.setCurrentItem(curYear - 1950);
+		year.setCurrentItem(curYear - startYear);
 		month.setCurrentItem(curMonth - 1);
 		day.setCurrentItem(curDate - 1);
 
@@ -281,7 +284,7 @@ public class DatetimePickerUtil {
 			@Override
 			public void onClick(View v) {
 
-				String str = (year.getCurrentItem() + 1950)
+				String str = (year.getCurrentItem() + startYear)
 						+ "-"
 						+ (((month.getCurrentItem() + 1) >= 10) ? (month
 								.getCurrentItem() + 1) : ("0" + (month
