@@ -57,19 +57,19 @@ public class DatetimePickerUtil {
 		switch(type) 
 		{ 
 		case DATE:
-			view = getDatePick(((EditText) currentDatePicker).getText().toString());
+			view = getDatePick(((TextView) currentDatePicker).getText().toString());
 			break;
 		case TIME:
-			view = getTimePick(((EditText) currentDatePicker).getText().toString());
+			view = getTimePick(((TextView) currentDatePicker).getText().toString());
 		    break;
 		case DATETIME:
-			view = getDatetimePick(((EditText) currentDatePicker).getText().toString());
+			view = getDatetimePick(((TextView) currentDatePicker).getText().toString());
 		    break;
 		case TIME_HM:
-			view = getTimeHmPick(((EditText) currentDatePicker).getText().toString());
+			view = getTimeHmPick(((TextView) currentDatePicker).getText().toString());
 		    break;		    
 		default:
-			view = getDatePick(((EditText) currentDatePicker).getText().toString());
+			view = getDatePick(((TextView) currentDatePicker).getText().toString());
             break; 
 		} 		
 		if(menuWindow!=null){
@@ -79,7 +79,7 @@ public class DatetimePickerUtil {
 		menuWindow = new PopupWindow(view, LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT);
 		menuWindow.setFocusable(true);
 		menuWindow.setBackgroundDrawable(new BitmapDrawable());
-		menuWindow.showAtLocation(view, Gravity.CENTER_HORIZONTAL, 0, 0);
+		menuWindow.showAtLocation(currentDatePicker, Gravity.CENTER_HORIZONTAL, 0, 0);
 		menuWindow.setOnDismissListener(new OnDismissListener() {
 			@Override
 			public void onDismiss() {

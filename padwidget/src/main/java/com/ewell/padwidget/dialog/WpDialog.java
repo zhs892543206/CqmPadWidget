@@ -115,6 +115,38 @@ public class WpDialog extends Dialog {
 //			Wpxx wpxx = new Wpxx();
 //			wpxx.setWpid(mCurrentWpId);
 //			wpxx.setWpname(mCurrentWpName);
+
+		public String getmCurrentWpflName() {
+			return mCurrentWpflName;
+		}
+
+		public void setmCurrentWpflName(String mCurrentWpflName) {
+			this.mCurrentWpflName = mCurrentWpflName;
+		}
+
+		public String getmCurrentWpName() {
+			return mCurrentWpName;
+		}
+
+		public void setmCurrentWpName(String mCurrentWpName) {
+			this.mCurrentWpName = mCurrentWpName;
+		}
+
+		public String getmCurrentWpflId() {
+			return mCurrentWpflId;
+		}
+
+		public void setmCurrentWpflId(String mCurrentWpflId) {
+			this.mCurrentWpflId = mCurrentWpflId;
+		}
+
+		public String getmCurrentWpId() {
+			return mCurrentWpId;
+		}
+
+		public void setmCurrentWpId(String mCurrentWpId) {
+			this.mCurrentWpId = mCurrentWpId;
+		}
 //			return wpxx;
 //		}
 //
@@ -172,7 +204,7 @@ public class WpDialog extends Dialog {
 		 * 设置选择界面的基础数据
 		 */
 		private void setUpData() {
-			mConfirmCallback.initDatas();
+			mWpflDatas = mConfirmCallback.initDatas(mWpxxDatasMap);
 			mViewProvince.setViewAdapter(new ArrayWheelAdapter<String>(mContext, mWpflDatas));
 			// 设置可见条目数量
 			mViewProvince.setVisibleItems(7);
@@ -206,16 +238,19 @@ public class WpDialog extends Dialog {
 		 * 根据当前的省，更新市WheelView的信息
 		 */
 		private void updateCities() {
-			int pCurrent = mViewProvince.getCurrentItem();
-			mCurrentWpflName = mWpflDatas[pCurrent];
-			String[] cities = mWpxxDatasMap.get(mCurrentWpflName);
-			if (cities == null) {
-				cities = new String[] { "" };
+			if(mWpflDatas!=null &&mWpflDatas.length>0){
+				int pCurrent = mViewProvince.getCurrentItem();
+				mCurrentWpflName = mWpflDatas[pCurrent];
+				String[] cities = mWpxxDatasMap.get(mCurrentWpflName);
+				if (cities == null) {
+					cities = new String[] { "" };
+				}
+				mViewCity.setViewAdapter(new ArrayWheelAdapter<String>(mContext, cities));
+				mViewCity.setCurrentItem(0);
+				mCurrentWpName = cities[0];
+				mCurrentWpId = mConfirmCallback.getWpIdByWpName(mCurrentWpName);
 			}
-			mViewCity.setViewAdapter(new ArrayWheelAdapter<String>(mContext, cities));
-			mViewCity.setCurrentItem(0);
-			mCurrentWpName = cities[0];
-			mCurrentWpId = mConfirmCallback.getWpIdByWpName(mCurrentWpName);
+
 
 		}
 	}
@@ -246,7 +281,7 @@ public class WpDialog extends Dialog {
 
 	public interface WpDialogCallback {
 		boolean onClickCancel();
-		boolean initDatas();
+		String[] initDatas(HashMap<String, String[]> mWpxxDatasMap);
 		String getWpIdByWpName(String wpName);
 	}
 }
