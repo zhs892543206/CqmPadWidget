@@ -75,7 +75,8 @@ public class DatetimePickerUtil {
 		if(menuWindow!=null){
 			menuWindow.dismiss();
 		}
-		menuWindow = new PopupWindow(view, LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+		//为了防止为dialog遮盖框高设置fill，showAtLocation传入dialog中的控件
+		menuWindow = new PopupWindow(view, LayoutParams.FILL_PARENT,LayoutParams.FILL_PARENT);
 		menuWindow.setFocusable(true);
 		menuWindow.setBackgroundDrawable(new BitmapDrawable());
 		menuWindow.showAtLocation(view, Gravity.CENTER_HORIZONTAL, 0, 0);
