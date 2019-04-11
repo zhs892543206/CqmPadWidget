@@ -84,7 +84,7 @@ public class WpDialog extends Dialog {
 			LayoutInflater inflater = (LayoutInflater) mContext
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			// instantiate the dialog with the custom Theme
-			dialog = new WpDialog(mContext, R.style.sign_dialog);
+			dialog = new WpDialog(mContext, R.style.wpsel_dialog);
 			View layout = inflater.inflate(R.layout.dialog_wp_select, null);
 			
 			//KeyBoardUtils.setupUI(layout, mContext);没效果

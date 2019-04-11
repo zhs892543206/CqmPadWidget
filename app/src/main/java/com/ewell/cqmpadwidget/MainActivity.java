@@ -2,10 +2,14 @@ package com.ewell.cqmpadwidget;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.ewell.padwidget.callback.LicCallback;
 import com.ewell.padwidget.date.DatetimePickerUtil;
+import com.ewell.padwidget.dialog.LicDialog;
 import com.ewell.padwidget.dialog.WpDialog;
 
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class MainActivity extends Activity {
@@ -14,54 +18,47 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final WpDialog.Builder builder = new WpDialog.Builder(this);
-        wpDialog = builder.create(new WpDialog.WpDialogCallback() {
-            @Override
-            public boolean onClickCancel() {
-
-                return false;
-            }
-
-            @Override
-            public String[] initDatas(HashMap<String, String[]> mWpxxDatasMap) {
-                mWpxxDatasMap.put("wpflname1", new String[]{"wpname1"});
-                String wpflname = "wpflname1";
-                String[] mWpflDatas;
-                mWpflDatas = new String[mWpxxDatasMap.size()];
-                builder.setmCurrentWpflName("wpflname1");
-                builder.setmCurrentWpName("wpname1");
-
-                mWpflDatas[0] = "wpname1";
+        LicDialog textHintDialog=null;
+        LicDialog.Builder builder = new LicDialog.Builder(this);
+        if (textHintDialog == null) {
+            textHintDialog = builder.create(new LicCallback() {
 
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        MainActivity.this.runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
+                @Override
+                public void onClickDownload() {
 
-                                DatetimePickerUtil.showPopwindow(DatetimePickerUtil.PopupType.DATE,builder.titleTxt, MainActivity.this, null);;
-                            }
-                        });
-                    }
-                }).start();
 
-                return mWpflDatas;
-            }
+                }
 
-            @Override
-            public String getWpIdByWpName(String wpName) {
-                return null;
-            }
-        },"测试");
+                @Override
+                public void onClickRegister() {
 
-        wpDialog.show();
+                }
+
+                @Override
+                public void onClickCancel() {
+
+                }
+
+                @Override
+                public void onClickRegisterCancel() {
+
+                }
+
+                @Override
+                public void onClickRegisterConfirm(String app_name, String app_phone, String cus_hdinfo, String cus_name, String cus_validdate) {
+
+                }
+
+
+            },getResources().getString(R.string.register_lic), "\n" + "设备信息：" );
+
+
+        }
+        textHintDialog.setCancelable(false);
+        textHintDialog.setCanceledOnTouchOutside(false);
+        textHintDialog.show();
+
 
 
     }

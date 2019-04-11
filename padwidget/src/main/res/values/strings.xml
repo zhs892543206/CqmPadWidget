@@ -2,4 +2,16 @@
     <string name="cqmpadwidget_article_sel">选择物品</string>
     <string name="cqmpadwidget_confirm">确认</string>
     <string name="cqmpadwidget_cancel">取消</string>
+
+    <string name="register_lic">申请证书</string>
+    <string name="download_lic">下载证书</string>
+    <string name="register_people">申请人</string>
+    <string name="phone">手机号</string>
+    <string name="device_type">设备类型</string>
+    <string name="device_no">设备编号</string>
+    <string name="customer_name">客户名称</string>
+    <string name="end_date">有效期</string>
+    <string name="to_return">返回</string>
+
+    <string name="please_write">请输入</string>
 </resources>

@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- 提示签收的dialog的style -->
-    <style name="sign_dialog" parent="@android:style/Theme.Dialog">
+    <!-- 物品选择dialog的style -->
+    <style name="wpsel_dialog" parent="@android:style/Theme.Dialog">
         <!-- 边框 -->
         <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@drawable/dialog_title_bg</item>
-
-
+    </style>
+    <!-- 证书dialog的style -->
+    <style name="lic_dialog" parent="@android:style/Theme.Dialog">
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+    <style name="setting_edt_style" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/widget_title_txtsize</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/gray</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@null</item>
+        <item name="android:singleLine">true</item>
     </style>
 </resources>

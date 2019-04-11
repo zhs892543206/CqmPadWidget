@@ -34,7 +34,8 @@ public class DatetimePickerUtil {
 	private static PopupWindow menuWindow;
 	private static View currentDatePicker =null;
 	private static Handler currentHandler =null;
-	
+	public static int mStartYear;
+	public static int mEndYear;
 	//DATE:年月日
 	//TIME:时分秒
 	//DATETIME：年月日 时分秒
@@ -57,10 +58,12 @@ public class DatetimePickerUtil {
 		currentDatePicker = backview;
 		currentHandler = handler;
 		View view = null;
+		mStartYear = startYear;
+		mEndYear = endYear;
 		switch(type) 
 		{ 
 		case DATE:
-			view = getDatePick(startYear, endYear, ((TextView) currentDatePicker).getText().toString());
+			view = getDatePick(((TextView) currentDatePicker).getText().toString());
 			break;
 		case TIME:
 			view = getTimePick(((TextView) currentDatePicker).getText().toString());
@@ -72,7 +75,7 @@ public class DatetimePickerUtil {
 			view = getTimeHmPick(((TextView) currentDatePicker).getText().toString());
 		    break;		    
 		default:
-			view = getDatePick(startYear, endYear, ((TextView) currentDatePicker).getText().toString());
+			view = getDatePick(((TextView) currentDatePicker).getText().toString());
             break; 
 		} 		
 		if(menuWindow!=null){
@@ -246,7 +249,7 @@ public class DatetimePickerUtil {
 	 * 
 	 * @return
 	 */
-	public static View getDatePick(final int startYear, int endYear, String dateStr) {
+	public static View getDatePick(String dateStr) {
 		Calendar c = Calendar.getInstance();
 		int curYear = c.get(Calendar.YEAR);
 		int curMonth = c.get(Calendar.MONTH) + 1;// 通过Calendar算出的月数要+1
@@ -259,7 +262,7 @@ public class DatetimePickerUtil {
 		final View view = inflater.inflate(R.layout.datapick, null);
 
 		year = (TimeWheelView) view.findViewById(R.id.year);
-		year.setAdapter(new NumericWheelAdapter(startYear, endYear));
+		year.setAdapter(new NumericWheelAdapter(mStartYear, mEndYear));
 		year.setLabel("年");
 		year.setCyclic(true);
 		year.addScrollingListener(scrollListener);
@@ -275,7 +278,7 @@ public class DatetimePickerUtil {
 		day.setLabel("日");
 		day.setCyclic(true);
 
-		year.setCurrentItem(curYear - startYear);
+		year.setCurrentItem(curYear - mStartYear);
 		month.setCurrentItem(curMonth - 1);
 		day.setCurrentItem(curDate - 1);
 
@@ -284,7 +287,7 @@ public class DatetimePickerUtil {
 			@Override
 			public void onClick(View v) {
 
-				String str = (year.getCurrentItem() + startYear)
+				String str = (year.getCurrentItem() + mStartYear)
 						+ "-"
 						+ (((month.getCurrentItem() + 1) >= 10) ? (month
 								.getCurrentItem() + 1) : ("0" + (month
@@ -344,7 +347,7 @@ public class DatetimePickerUtil {
 		
 		final View view = inflater.inflate(R.layout.datetimepick, null);
 		year = (TimeWheelView) view.findViewById(R.id.year);
-		year.setAdapter(new NumericWheelAdapter(1950, c.get(Calendar.YEAR)+2));
+		year.setAdapter(new NumericWheelAdapter(mStartYear, c.get(Calendar.YEAR)+2));
 		//year.setLabel("年");
 		year.setCyclic(true);
 		year.addScrollingListener(scrollListener);
@@ -360,7 +363,7 @@ public class DatetimePickerUtil {
 		//day.setLabel("日");
 		day.setCyclic(true);
 
-		year.setCurrentItem(curYear - 1950);
+		year.setCurrentItem(curYear - mStartYear);
 		month.setCurrentItem(curMonth - 1);
 		day.setCurrentItem(curDate - 1);
 		
@@ -385,7 +388,7 @@ public class DatetimePickerUtil {
 			@Override
 			public void onClick(View v) {
 
-				String str = (year.getCurrentItem() + 1950)
+				String str = (year.getCurrentItem() + mStartYear)
 						+ "-"
 						+ (((month.getCurrentItem() + 1) >= 10) ? (month
 								.getCurrentItem() + 1) : ("0" + (month
@@ -450,7 +453,7 @@ public class DatetimePickerUtil {
 		@Override
 		public void onScrollingFinished(TimeWheelView wheel) {
 			// TODO Auto-generated method stub
-			int n_year = year.getCurrentItem() + 1950;// 楠烇拷
+			int n_year = year.getCurrentItem() + mStartYear;// 楠烇拷
 			int n_month = month.getCurrentItem() + 1;// 閺堬拷
 			initDay(n_year, n_month);
 		}

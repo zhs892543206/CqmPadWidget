@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item>
+        <shape>
+            <corners android:bottomLeftRadius="4dp"/>
+			<solid android:color="@color/btn_cancel"/>
+        </shape>
+    </item>
+	<item>
+        <shape>
+            <corners android:bottomLeftRadius="4dp"/>
+			<solid android:color="@color/translucent_pressed"/>
+        </shape>
+    </item>
+</layer-list>
