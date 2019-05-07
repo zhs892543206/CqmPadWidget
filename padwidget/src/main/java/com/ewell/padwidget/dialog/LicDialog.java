@@ -179,7 +179,7 @@ public class LicDialog extends Dialog {
 
 			});
 
-			end_dateEdt.setText(fromDate2YYYYMMDD(new Date()));
+			//end_dateEdt.setText(fromDate2YYYYMMDD(new Date()));//默认不显示好，开始也让他们自己选，不然容易忘记选
 //			end_dateEdt.setOnClickListener(new View.OnClickListener() {
 //				@Override
 //				public void onClick(View v) {

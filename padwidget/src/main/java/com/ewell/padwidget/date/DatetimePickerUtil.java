@@ -254,7 +254,7 @@ public class DatetimePickerUtil {
 		int curYear = c.get(Calendar.YEAR);
 		int curMonth = c.get(Calendar.MONTH) + 1;// 通过Calendar算出的月数要+1
 		int curDate = c.get(Calendar.DATE);
-		if (dateStr.split("-", -1).length == 3) {
+		if (dateStr!=null && dateStr.split("-", -1).length == 3) {
 			curYear = Integer.parseInt(dateStr.split("-", -1)[0]);
 			curMonth = Integer.parseInt(dateStr.split("-", -1)[1]);
 			curDate = Integer.parseInt(dateStr.split("-", -1)[2]);
