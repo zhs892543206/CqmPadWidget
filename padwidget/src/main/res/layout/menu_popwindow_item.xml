@@ -24,7 +24,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
     <TextView
         android:id="@+id/tv_menu_item"
         android:layout_width="match_parent"

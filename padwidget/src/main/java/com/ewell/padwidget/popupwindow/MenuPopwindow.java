@@ -22,6 +22,7 @@ import java.util.List;
 public class MenuPopwindow extends PopupWindow {
     private View conentView;
     private ListView lvContent;
+    private boolean isShowImg = false;
     public MenuPopwindow(Activity context, List<MyMenuPopwindowBean> list) {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -85,8 +86,19 @@ public class MenuPopwindow extends PopupWindow {
             } else {
                 holder = (Holder) convertView.getTag();
             }
-            holder.ivItem.setImageResource(list.get(position).getIconId());
-            holder.tvItem.setText(list.get(position).getContent());
+            if(holder.ivItem!=null) {
+                if(isShowImg){
+                    holder.ivItem.setVisibility(View.VISIBLE);
+                }else{
+                    holder.ivItem.setVisibility(View.GONE);
+                }
+                if(list.get(position).getIconId()>=0) {
+                    holder.ivItem.setImageResource(list.get(position).getIconId());
+                }
+            }
+            if(holder.tvItem!=null) {
+                holder.tvItem.setText(list.get(position).getContent());
+            }
             return convertView;
         }
         class Holder {
