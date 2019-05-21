@@ -3,6 +3,16 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- Customize your theme here. -->
+        <item name="android:popupMenuStyle">@style/popMenu_style</item>
+        <item name="android:textAppearanceSmallPopupMenu">@style/popMenu_txt_style</item>
+        <item name="android:textAppearanceLargePopupMenu">@style/popMenu_txt_style</item>
     </style>
+    <style name="popMenu_style" parent="@android:style/Widget.PopupMenu">
 
+        <item name="android:popupBackground">@color/title_bg</item>
+    </style>
+    <style name="popMenu_txt_style">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 </resources>

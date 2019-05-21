@@ -1,16 +1,28 @@
 package com.ewell.cqmpadwidget;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.PopupMenu;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ewell.padwidget.callback.LicCallback;
 import com.ewell.padwidget.date.DatetimePickerUtil;
 import com.ewell.padwidget.dialog.LicDialog;
 import com.ewell.padwidget.dialog.WpDialog;
+import com.ewell.padwidget.popupwindow.MenuPopwindow;
+import com.ewell.padwidget.popupwindow.MyPopMenu;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 public class MainActivity extends Activity {
     WpDialog wpDialog;
@@ -18,6 +30,30 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final TextView textView = findViewById(R.id.content);
+        final String[] texts = {"dfa", "分科分拣"
+                , "说的方式范德萨", "e3"};
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        setMenuPop(textView, texts, null);
+                    }
+                });
+            }
+        });
+        thread.start();
+
         LicDialog textHintDialog=null;
         LicDialog.Builder builder = new LicDialog.Builder(this);
         if (textHintDialog == null) {
@@ -57,9 +93,43 @@ public class MainActivity extends Activity {
         }
         textHintDialog.setCancelable(false);
         textHintDialog.setCanceledOnTouchOutside(false);
-        textHintDialog.show();
+        //textHintDialog.show();
 
 
 
+    }
+    /**
+     * 设置弹出pop
+     */
+    public void setMenuPop(View showView, String[] texts, PopupMenu.OnMenuItemClickListener onItemClickListener){
+        int[] icons = new int[]{};
+        //String[] texts = {getResources().getString(R.string.slps), "更新当天发放信息", "更新全部发放信息"};
+        List<MenuPopwindow.MyMenuPopwindowBean> list = new ArrayList<MenuPopwindow.MyMenuPopwindowBean>();
+        MenuPopwindow.MyMenuPopwindowBean bean = null;
+        for (int i = 0; i < texts.length; i++) {
+            bean = new MenuPopwindow.MyMenuPopwindowBean();
+            if(icons.length>i) {
+                bean.setIconId(icons[i]);
+            }
+            bean.setContent(texts[i]);
+            list.add(bean);
+        }
+        //MyPopMenu popup=new MyPopMenu(this,showView);
+        MyPopMenu popup = null;
+        //改变内容风格方法是个activity或者application的主题里添加属性。类似
+//        <item name="android:popupMenuStyle">@style/popMenu_style</item>
+//        <item name="android:textAppearanceSmallPopupMenu">@style/popMenu_txt_style</item>
+//        <item name="android:textAppearanceLargePopupMenu">@style/popMenu_txt_style</item>
+        //可以查看style文件
+        popup=new MyPopMenu(this,showView);
+
+        //将R.menu.popup_menu菜单资源加载到popup菜单中
+        getMenuInflater().inflate(R.menu.fkfj_menu,popup.getMenu());
+
+        //为popup菜单的菜单项单击事件绑定事件监听器
+        popup.setOnMenuItemClickListener(onItemClickListener);
+        //设置菜单图片显示
+        popup.setIconEnable(popup.getMenu(), true);
+        popup.show();
     }
 }

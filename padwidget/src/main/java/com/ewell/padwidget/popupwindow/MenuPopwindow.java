@@ -19,11 +19,17 @@ import com.ewell.padwidget.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * popupwindow想设置指定宽度需要布局最外层用match，然后第二层设置指定。然后this.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
+ * 或者
+ * this.setWidth(width);
+ */
 public class MenuPopwindow extends PopupWindow {
     private View conentView;
     private ListView lvContent;
     private boolean isShowImg = false;
-    public MenuPopwindow(Activity context, List<MyMenuPopwindowBean> list) {
+    public MenuPopwindow(Activity context, List<MyMenuPopwindowBean> list, boolean isShowImg) {
+        this.isShowImg = isShowImg;
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         conentView = inflater.inflate(R.layout.menu_popwindow, null);
