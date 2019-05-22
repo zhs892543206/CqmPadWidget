@@ -137,7 +137,7 @@ public class SecurityKeyboard extends PopupWindow {
                 configuration.getSelectedColor(), configuration.getUnselectedColor());
 
         initNumbers();
-        randomNumbers();
+        //randomNumbers();//数字键盘随机顺序不执行
         switch (configuration.getDefaultKeyboardType().getCode()) {
             case 0:
                 keyboardView.setKeyboard(mKeyboardLetter);
