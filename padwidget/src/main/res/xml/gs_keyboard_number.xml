@@ -2,8 +2,8 @@
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:horizontalGap="4dip"
     android:keyHeight="@dimen/key_height"
-    android:keyWidth="30.5344%p"
-    android:verticalGap="4dip">
+    android:keyWidth="32.6%p"
+    android:verticalGap="4dip"><!--30.5344%p horizontalGap，verticalGap是两个按钮之间的距离-->
     <Row>
         <Key
             android:codes="49"

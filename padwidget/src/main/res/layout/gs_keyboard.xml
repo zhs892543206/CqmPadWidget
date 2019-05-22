@@ -28,7 +28,7 @@
     <LinearLayout
         android:id="@+id/ll_menu"
         android:layout_width="match_parent"
-        android:layout_height="32dip"
+        android:layout_height="wrap_content"
         android:background="#ebebeb"
         android:gravity="right"
         android:orientation="horizontal">
@@ -39,10 +39,12 @@
             android:layout_height="match_parent"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
+            android:paddingTop="@dimen/widget_padding"
+            android:paddingBottom="@dimen/widget_padding"
             android:gravity="center"
             android:text="数字"
             android:textColor="#000000"
-            android:textSize="15sp"/>
+            android:textSize="@dimen/ccc_widget_textsize"/>
         <TextView
             android:id="@+id/tv_symbol"
             android:layout_width="wrap_content"
@@ -50,9 +52,11 @@
             android:gravity="center"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
+            android:paddingTop="@dimen/widget_padding"
+            android:paddingBottom="@dimen/widget_padding"
             android:text="符号"
             android:textColor="#000000"
-            android:textSize="15sp" />
+            android:textSize="@dimen/ccc_widget_textsize" />
 
         <TextView
             android:id="@+id/tv_letter"
@@ -60,9 +64,11 @@
             android:layout_height="match_parent"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
+            android:paddingTop="@dimen/widget_padding"
+            android:paddingBottom="@dimen/widget_padding"
             android:gravity="center"
             android:text="字母"
             android:textColor="#000000"
-            android:textSize="15sp"/>
+            android:textSize="@dimen/ccc_widget_textsize"/>
     </LinearLayout>
 </RelativeLayout>

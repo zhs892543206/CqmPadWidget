@@ -2,8 +2,8 @@
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:horizontalGap="4dip"
     android:keyHeight="@dimen/key_height"
-    android:keyWidth="8.42500%p"
-    android:verticalGap="4dip">
+    android:keyWidth="9.5%p"
+    android:verticalGap="4dip"><!--8.42500%p horizontalGap，verticalGap是两个按钮之间的距离-->
     <Row>
         <Key
             android:codes="113"
@@ -77,7 +77,7 @@
             android:isSticky="true"
             android:keyEdgeFlags="left"
             android:keyIcon="@mipmap/keyboard_shift"
-            android:keyWidth="13.099998%p" />
+            android:keyWidth="14.399998%p" /><!--13.099998%p-->
         <Key
             android:codes="122"
             android:keyLabel="z" />
@@ -104,7 +104,7 @@
             android:isRepeatable="true"
             android:keyEdgeFlags="right"
             android:keyIcon="@mipmap/keyboard_delete"
-            android:keyWidth="13.099998%p" />
+            android:keyWidth="14.399998%p" /><!--13.099998%p-->
     </Row>
     <Row android:rowEdgeFlags="bottom">
 
@@ -116,6 +116,6 @@
             android:codes="-3"
             android:keyEdgeFlags="right"
             android:keyLabel="完成"
-            android:keyWidth="18.000004%p" />
+            android:keyWidth="22.500004%p" /><!--18.000004%p-->
     </Row>
 </Keyboard>
