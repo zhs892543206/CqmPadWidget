@@ -122,15 +122,16 @@ public class SecurityKeyboard extends PopupWindow {
         tvLetter = mMainView.findViewById(R.id.tv_letter);
         tvNumber = mMainView.findViewById(R.id.tv_number);
 
-        if (!configuration.isLetterEnabled()) {
-            tvLetter.setVisibility(View.GONE);
-        }
-        if (!configuration.isNumberEnabled()) {
-            tvNumber.setVisibility(View.GONE);
-        }
-        if (!configuration.isSymbolEnabled()) {
-            tvSymbol.setVisibility(View.GONE);
-        }
+        //三种键盘按键都显示不隐藏
+//        if (!configuration.isLetterEnabled()) {
+//            tvLetter.setVisibility(View.GONE);
+//        }
+//        if (!configuration.isNumberEnabled()) {
+//            tvNumber.setVisibility(View.GONE);
+//        }
+//        if (!configuration.isSymbolEnabled()) {
+//            tvSymbol.setVisibility(View.GONE);
+//        }
 
         switchKeyboardType(configuration.getDefaultKeyboardType(),
                 configuration.getSelectedColor(), configuration.getUnselectedColor());
@@ -161,7 +162,7 @@ public class SecurityKeyboard extends PopupWindow {
                 switchKeyboardType(KeyboardType.NUMBER,
                         configuration.getSelectedColor(),
                         configuration.getUnselectedColor());
-                randomNumbers();
+                //randomNumbers();//数字键盘随机顺序不执行
                 keyboardView.setKeyboard(mKeyboardNumber);
             }
         });
@@ -190,7 +191,7 @@ public class SecurityKeyboard extends PopupWindow {
         List<View> children = getAllChildren(parentLayout);
         for (int i = 0; i < children.size(); i++) {
             View view = children.get(i);
-            if (view instanceof SecurityEditText) {
+            if (view instanceof SecurityEditText||(view.getParent()!=null && view.getParent() instanceof  SecurityEditText)) {
                 SecurityEditText securityEditText = (SecurityEditText) view;
                 securityEditText.setOnTouchListener(new View.OnTouchListener() {
                     @Override
