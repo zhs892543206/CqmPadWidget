@@ -410,7 +410,7 @@ public class SecurityKeyboard extends PopupWindow {
                     - DisplayUtils.dp2px(mContext, 199);
         }
         Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.securitykeyboard_push_bottom_in);
-        if(parent==null && gravity>0) {
+        if(parent==null || gravity<=0) {
             showAtLocation(view, Gravity.BOTTOM | Gravity.LEFT, 0, yOff);
         }else{
             showAtLocation(parent, gravity| Gravity.LEFT, locationX, locationY);

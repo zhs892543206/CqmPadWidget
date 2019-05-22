@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
                 .setLetterEnabled(false);
         securityKeyboard = new SecurityKeyboard(relativeLayout, configure);
         EditText editText = findViewById(R.id.frag_cccabinet_login_loginname);
-        securityKeyboard.setLocation(editText, Gravity.RIGHT, editText.getWidth(), 0);
+        //securityKeyboard.setLocation(editText, Gravity.RIGHT, editText.getWidth(), 0);
         final TextView textView = findViewById(R.id.content);
         final String[] texts = {"dfa", "分科分拣"
                 , "说的方式范德萨", "e3"};
