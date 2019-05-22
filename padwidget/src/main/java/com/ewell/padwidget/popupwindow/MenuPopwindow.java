@@ -23,6 +23,18 @@ import java.util.List;
  * popupwindow想设置指定宽度需要布局最外层用match，然后第二层设置指定。然后this.setWidth(ViewGroup.LayoutParams.WRAP_CONTENT);
  * 或者
  * this.setWidth(width);
+ *
+ *  //String[] texts = {getResources().getString(R.string.slps), "更新当天发放信息", "更新全部发放信息"};
+ List<MenuPopwindow.MyMenuPopwindowBean> list = new ArrayList<MenuPopwindow.MyMenuPopwindowBean>();
+ MenuPopwindow.MyMenuPopwindowBean bean = null;
+ for (int i = 0; i < texts.length; i++) {
+ bean = new MenuPopwindow.MyMenuPopwindowBean();
+ if(icons.length>i) {
+ bean.setIconId(icons[i]);
+ }
+ bean.setContent(texts[i]);
+ list.add(bean);
+ }
  */
 public class MenuPopwindow extends PopupWindow {
     private View conentView;

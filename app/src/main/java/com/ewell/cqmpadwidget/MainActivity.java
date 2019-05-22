@@ -7,6 +7,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.PopupMenu;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,8 +15,12 @@ import com.ewell.padwidget.callback.LicCallback;
 import com.ewell.padwidget.date.DatetimePickerUtil;
 import com.ewell.padwidget.dialog.LicDialog;
 import com.ewell.padwidget.dialog.WpDialog;
+import com.ewell.padwidget.keyboard.security.KeyboardType;
+import com.ewell.padwidget.keyboard.security.SecurityConfigure;
+import com.ewell.padwidget.keyboard.security.SecurityKeyboard;
 import com.ewell.padwidget.popupwindow.MenuPopwindow;
 import com.ewell.padwidget.popupwindow.MyPopMenu;
+
 
 import org.w3c.dom.Text;
 
@@ -30,6 +35,11 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        RelativeLayout relativeLayout = findViewById(R.id.main_rly);
+        SecurityConfigure configure = new SecurityConfigure()
+                .setDefaultKeyboardType(KeyboardType.NUMBER)
+                .setLetterEnabled(false);
+        SecurityKeyboard securityKeyboard = new SecurityKeyboard(relativeLayout, configure);
         final TextView textView = findViewById(R.id.content);
         final String[] texts = {"dfa", "分科分拣"
                 , "说的方式范德萨", "e3"};
@@ -102,18 +112,6 @@ public class MainActivity extends Activity {
      * 设置弹出pop
      */
     public void setMenuPop(View showView, String[] texts, PopupMenu.OnMenuItemClickListener onItemClickListener){
-        int[] icons = new int[]{};
-        //String[] texts = {getResources().getString(R.string.slps), "更新当天发放信息", "更新全部发放信息"};
-        List<MenuPopwindow.MyMenuPopwindowBean> list = new ArrayList<MenuPopwindow.MyMenuPopwindowBean>();
-        MenuPopwindow.MyMenuPopwindowBean bean = null;
-        for (int i = 0; i < texts.length; i++) {
-            bean = new MenuPopwindow.MyMenuPopwindowBean();
-            if(icons.length>i) {
-                bean.setIconId(icons[i]);
-            }
-            bean.setContent(texts[i]);
-            list.add(bean);
-        }
         //MyPopMenu popup=new MyPopMenu(this,showView);
         MyPopMenu popup = null;
         //改变内容风格方法是个activity或者application的主题里添加属性。类似
@@ -123,6 +121,13 @@ public class MainActivity extends Activity {
         //可以查看style文件
         popup=new MyPopMenu(this,showView);
 
+//        for (int i = 0; i < texts.length; i++) {
+//            if(icons.length>i) {
+//                popup.getMenu().add(texts[i]).setIcon(icons[i]);
+//            }else {
+//                popup.getMenu().add(texts[i]);
+//            }
+//        }
         //将R.menu.popup_menu菜单资源加载到popup菜单中
         getMenuInflater().inflate(R.menu.fkfj_menu,popup.getMenu());
 

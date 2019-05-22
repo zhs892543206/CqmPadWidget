@@ -49,4 +49,7 @@
     <color name="btn_cancel">#4F5F6F</color>
     <color name="btn_login_pressed">#59C2E6</color>
     <color name="btn_cancel_pressed">#4F5F6F</color>
+
+    <!--securitykeyboard-->
+    <color name="exmobi_white">#7f090000</color>
 </resources>

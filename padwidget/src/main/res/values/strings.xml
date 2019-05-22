@@ -14,4 +14,8 @@
     <string name="to_return">返回</string>
 
     <string name="please_write">请输入</string>
+
+    <!--securitykeyboard-->
+    <string name="aToz">abcdefghijklmnopqrstuvwxyz</string>
+    <string name="zeroTonine">1234567890</string>
 </resources>

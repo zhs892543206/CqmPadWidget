@@ -17,4 +17,7 @@
 
     <dimen name="ccc_confrimbtn_radius">8dp</dimen>
 
+    <!--securitykeyboard-->
+    <dimen name="key_height">48dp</dimen>
+    <dimen name="key_height_land">40dp</dimen>
 </resources>

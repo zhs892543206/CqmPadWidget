@@ -29,6 +29,8 @@
         <item name="android:windowExitAnimation">@anim/popup_exit</item>
     </style>
 
-
-
+    <!--securitykeyboard-->
+    <style name="PopupKeybroad" parent="android:Animation">
+        <item name="android:windowExitAnimation">@anim/securitykeyboard_push_bottom_out</item>
+    </style>
 </resources>
