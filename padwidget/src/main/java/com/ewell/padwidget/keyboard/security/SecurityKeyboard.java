@@ -88,7 +88,7 @@ public class SecurityKeyboard extends PopupWindow {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mMainView = inflater.inflate(R.layout.gs_keyboard, null);
         this.setContentView(mMainView);
-        this.setWidth(DisplayUtils.getScreenWidth(mContext));
+        this.setWidth(LayoutParams.WRAP_CONTENT);//DisplayUtils.getScreenWidth(mContext)
         this.setHeight(LayoutParams.WRAP_CONTENT);
         ColorDrawable dw = new ColorDrawable(Color.parseColor("#00000000"));
         // 设置SelectPicPopupWindow弹出窗体的背景
@@ -213,6 +213,23 @@ public class SecurityKeyboard extends PopupWindow {
         }
     }
 
+    private View parent;
+    private int gravity;
+    private int locationX;
+    int locationY;
+    /**
+     * 设置键盘显示位置
+     * @param parent
+     * @param gravity
+     * @param x
+     * @param y
+     */
+    public void setLocation(View parent, int gravity, int x, int y){
+        this.parent = parent;
+        this.gravity = gravity;
+        this.locationX = x;
+        this.locationY = y;
+    }
     /**
      * @param popupWindow popupWindow 的touch事件传递
      * @param touchModal  true代表拦截，事件不向下一层传递，false表示不拦截，事件向下一层传递
@@ -393,7 +410,11 @@ public class SecurityKeyboard extends PopupWindow {
                     - DisplayUtils.dp2px(mContext, 199);
         }
         Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.securitykeyboard_push_bottom_in);
-        showAtLocation(view, Gravity.BOTTOM | Gravity.LEFT, 0, yOff);
+        if(parent==null && gravity>0) {
+            showAtLocation(view, Gravity.BOTTOM | Gravity.LEFT, 0, yOff);
+        }else{
+            showAtLocation(parent, gravity| Gravity.LEFT, locationX, locationY);
+        }
         getContentView().setAnimation(animation);
     }
 

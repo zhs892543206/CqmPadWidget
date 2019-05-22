@@ -16,7 +16,7 @@
         android:text="Hello World!" />
     <com.ewell.padwidget.edittext.LeftSecurityEditText
         android:id="@+id/frag_cccabinet_login_loginname"
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:drawableLeft="@mipmap/ic_launcher"
         android:drawableRight="@mipmap/icon_clear"

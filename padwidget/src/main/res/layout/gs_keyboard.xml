@@ -9,7 +9,7 @@
     <android.inputmethodservice.KeyboardView
         android:id="@+id/keyboard_view"
         android:layout_width="fill_parent"
-        android:layout_height="236dip"
+        android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:background="#ebebeb"
         android:focusable="true"

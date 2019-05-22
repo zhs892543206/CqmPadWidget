@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.PopupMenu;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -31,6 +32,7 @@ import java.util.List;
 
 public class MainActivity extends Activity {
     WpDialog wpDialog;
+    SecurityKeyboard securityKeyboard;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +41,9 @@ public class MainActivity extends Activity {
         SecurityConfigure configure = new SecurityConfigure()
                 .setDefaultKeyboardType(KeyboardType.NUMBER)
                 .setLetterEnabled(false);
-        SecurityKeyboard securityKeyboard = new SecurityKeyboard(relativeLayout, configure);
+        securityKeyboard = new SecurityKeyboard(relativeLayout, configure);
+        EditText editText = findViewById(R.id.frag_cccabinet_login_loginname);
+        securityKeyboard.setLocation(editText, Gravity.RIGHT, editText.getWidth(), 0);
         final TextView textView = findViewById(R.id.content);
         final String[] texts = {"dfa", "分科分拣"
                 , "说的方式范德萨", "e3"};
@@ -56,6 +60,7 @@ public class MainActivity extends Activity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+
 
                         setMenuPop(textView, texts, null);
                     }
