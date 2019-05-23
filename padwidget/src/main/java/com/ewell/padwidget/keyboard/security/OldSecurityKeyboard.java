@@ -22,7 +22,6 @@ import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ewell.padwidget.R;
@@ -33,14 +32,14 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * 安全键盘主类
+ * 安全键盘主类这个不用的
  *
  * @author yidong (onlyloveyd@gmaol.com)
  * @date 2018/6/22 07:45
  */
-public class SecurityKeyboard extends PopupWindow {
+public class OldSecurityKeyboard extends PopupWindow {
 
-    private KeyboardView numberKeyboardView,letterKeyboardView,symbolKeyboardView;
+    private KeyboardView keyboardView;
 
     /**
      * 字母键盘
@@ -73,11 +72,11 @@ public class SecurityKeyboard extends PopupWindow {
 
     private ViewGroup mParentLayout;
     private Context mContext;
-    public SecurityKeyboard(final ViewGroup parentLayout, SecurityConfigure securityConfigure) {
+    public OldSecurityKeyboard(final ViewGroup parentLayout, SecurityConfigure securityConfigure) {
         this(parentLayout, securityConfigure, -1, DisplayUtils.getScreenWidth(parentLayout.getContext()));
     }
     @SuppressLint("ClickableViewAccessibility")
-    public SecurityKeyboard(final ViewGroup parentLayout, SecurityConfigure securityConfigure, int layoutGravity, final int width) {
+    public OldSecurityKeyboard(final ViewGroup parentLayout, SecurityConfigure securityConfigure, int layoutGravity, final int width) {
         super(parentLayout.getContext());
         if (securityConfigure == null) {
             configuration = new SecurityConfigure();
@@ -119,12 +118,8 @@ public class SecurityKeyboard extends PopupWindow {
 
 
         keyboardViewLy = mMainView.findViewById(R.id.keyboard_view_ly);
-        numberKeyboardView = mMainView
+        keyboardView = mMainView
                 .findViewById(R.id.keyboard_number_view);
-        letterKeyboardView = mMainView
-                .findViewById(R.id.keyboard_letter_view);
-        symbolKeyboardView = mMainView
-                .findViewById(R.id.keyboard_symbol_view);
         tvSymbol = mMainView.findViewById(R.id.tv_symbol);
         tvLetter = mMainView.findViewById(R.id.tv_letter);
         tvNumber = mMainView.findViewById(R.id.tv_number);
@@ -133,30 +128,21 @@ public class SecurityKeyboard extends PopupWindow {
         //randomNumbers();//数字键盘随机顺序不执行
         switch (configuration.getDefaultKeyboardType().getCode()) {
             case 0:
-                letterKeyboardView.setKeyboard(mKeyboardLetter);
+                keyboardView.setKeyboard(mKeyboardLetter);
                 break;
             case 1:
-                numberKeyboardView.setKeyboard(mKeyboardNumber);
+                keyboardView.setKeyboard(mKeyboardNumber);
                 break;
             case 2:
-                symbolKeyboardView.setKeyboard(mKeyboardSymbol);
+                keyboardView.setKeyboard(mKeyboardSymbol);
                 break;
             default:
-                letterKeyboardView.setKeyboard(mKeyboardLetter);
-                numberKeyboardView.setKeyboard(mKeyboardNumber);
-                symbolKeyboardView.setKeyboard(mKeyboardSymbol);
+                keyboardView.setKeyboard(mKeyboardLetter);
                 break;
         }
-        letterKeyboardView.setEnabled(true);
-        letterKeyboardView.setPreviewEnabled(false);
-        letterKeyboardView.setOnKeyboardActionListener(listener);
-        numberKeyboardView.setEnabled(true);
-        numberKeyboardView.setPreviewEnabled(false);
-        numberKeyboardView.setOnKeyboardActionListener(listener);
-        symbolKeyboardView.setEnabled(true);
-        symbolKeyboardView.setPreviewEnabled(false);
-        symbolKeyboardView.setOnKeyboardActionListener(listener);
-
+        keyboardView.setEnabled(true);
+        keyboardView.setPreviewEnabled(false);
+        keyboardView.setOnKeyboardActionListener(listener);
         tvNumber.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -165,10 +151,8 @@ public class SecurityKeyboard extends PopupWindow {
                         configuration.getSelectedColor(),
                         configuration.getUnselectedColor());
                 //randomNumbers();//数字键盘随机顺序不执行
-                numberKeyboardView.setKeyboard(mKeyboardNumber);
-                numberKeyboardView.setVisibility(View.VISIBLE);
-                letterKeyboardView.setVisibility(View.GONE);
-                symbolKeyboardView.setVisibility(View.GONE);
+                keyboardView.setKeyboard(mKeyboardNumber);
+
             }
         });
         tvLetter.setOnClickListener(new OnClickListener() {
@@ -178,10 +162,7 @@ public class SecurityKeyboard extends PopupWindow {
                 switchKeyboardType(KeyboardType.LETTER,
                         configuration.getSelectedColor(),
                         configuration.getUnselectedColor());
-                letterKeyboardView.setKeyboard(mKeyboardLetter);
-                numberKeyboardView.setVisibility(View.GONE);
-                letterKeyboardView.setVisibility(View.VISIBLE);
-                symbolKeyboardView.setVisibility(View.GONE);
+                keyboardView.setKeyboard(mKeyboardLetter);
             }
         });
         tvSymbol.setOnClickListener(new OnClickListener() {
@@ -191,10 +172,7 @@ public class SecurityKeyboard extends PopupWindow {
                 switchKeyboardType(KeyboardType.SYMBOL,
                         configuration.getSelectedColor(),
                         configuration.getUnselectedColor());
-                symbolKeyboardView.setKeyboard(mKeyboardSymbol);
-                numberKeyboardView.setVisibility(View.GONE);
-                letterKeyboardView.setVisibility(View.GONE);
-                symbolKeyboardView.setVisibility(View.VISIBLE);
+                keyboardView.setKeyboard(mKeyboardSymbol);
             }
         });
         //三种键盘按键都显示不隐藏
@@ -343,16 +321,16 @@ public class SecurityKeyboard extends PopupWindow {
             } else if (primaryCode == Keyboard.KEYCODE_SHIFT) {
                 // 大小写切换
                 changeKey();
-                letterKeyboardView.setKeyboard(mKeyboardLetter);
+                keyboardView.setKeyboard(mKeyboardLetter);
 
             } else if (primaryCode == Keyboard.KEYCODE_MODE_CHANGE) {
                 // 数字键盘切换,默认是英文键盘
                 if (isNumber) {
                     isNumber = false;
-                    letterKeyboardView.setKeyboard(mKeyboardLetter);
+                    keyboardView.setKeyboard(mKeyboardLetter);
                 } else {
                     isNumber = true;
-                    numberKeyboardView.setKeyboard(mKeyboardNumber);
+                    keyboardView.setKeyboard(mKeyboardNumber);
                 }
             } else if (primaryCode == 57419) {
                 //左移

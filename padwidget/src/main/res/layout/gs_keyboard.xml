@@ -1,41 +1,24 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/keyboard_view_ly"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:layout_margin="0dp"
-    android:background="#dbdde2"
-    >
-
-    <android.inputmethodservice.KeyboardView
-        android:id="@+id/keyboard_view"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:background="#ebebeb"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:keyBackground="@drawable/keyboard_key"
-        android:keyTextColor="#000000"
-        android:paddingBottom="10dip"
-        android:paddingLeft="8dip"
-        android:paddingRight="8dip"
-        android:paddingTop="40dip"
-        android:shadowRadius="0.0"
-        android:textStyle="normal"
-        />
-
-
+    android:background="#ebebeb"
+    ><!--#dbdde2-->
     <LinearLayout
         android:id="@+id/ll_menu"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#ebebeb"
         android:gravity="right"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+   >
 
         <TextView
             android:id="@+id/tv_number"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
@@ -71,4 +54,67 @@
             android:textColor="#000000"
             android:textSize="@dimen/ccc_widget_textsize"/>
     </LinearLayout>
-</RelativeLayout>
+    <!--一个KeyboardView控件当非全屏宽度切换会有后一个不按当前控件百分比计算item,所以干脆多个了-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <android.inputmethodservice.KeyboardView
+            android:id="@+id/keyboard_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="#ebebeb"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:keyBackground="@drawable/keyboard_key"
+            android:keyTextColor="#000000"
+
+            android:shadowRadius="0.0"
+            android:textStyle="normal"
+            />
+        <android.inputmethodservice.KeyboardView
+            android:id="@+id/keyboard_number_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="#ebebeb"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:keyBackground="@drawable/keyboard_key"
+            android:keyTextColor="#000000"
+
+            android:shadowRadius="0.0"
+            android:textStyle="normal"
+            />
+        <android.inputmethodservice.KeyboardView
+            android:id="@+id/keyboard_letter_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="#ebebeb"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:keyBackground="@drawable/keyboard_key"
+            android:keyTextColor="#000000"
+
+            android:shadowRadius="0.0"
+            android:textStyle="normal"
+            />
+        <android.inputmethodservice.KeyboardView
+            android:id="@+id/keyboard_symbol_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="#ebebeb"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:keyBackground="@drawable/keyboard_key"
+            android:keyTextColor="#000000"
+
+            android:shadowRadius="0.0"
+            android:textStyle="normal"
+            />
+    </RelativeLayout>
+
+
+</LinearLayout>

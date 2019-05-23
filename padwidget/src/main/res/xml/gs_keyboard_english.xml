@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
-    android:horizontalGap="4dip"
+    android:horizontalGap="1dip"
     android:keyHeight="@dimen/key_height"
-    android:keyWidth="9.5%p"
-    android:verticalGap="4dip"><!--8.42500%p horizontalGap，verticalGap是两个按钮之间的距离-->
+    android:keyWidth="10%p"
+    android:verticalGap="1dip"><!--8.42500%p horizontalGap，verticalGap是两个按钮之间的距离-->
     <Row>
         <Key
             android:codes="113"
@@ -41,8 +41,8 @@
     <Row>
         <Key
             android:codes="97"
-            android:horizontalGap="4.999995%p"
             android:keyEdgeFlags="left"
+            android:horizontalGap="5%p"
             android:keyLabel="a" />
         <Key
             android:codes="115"
@@ -67,8 +67,14 @@
             android:keyLabel="k" />
         <Key
             android:codes="108"
-            android:keyEdgeFlags="right"
+
             android:keyLabel="l" />
+        <Key
+            android:codes="1111111111111111111111111111"
+            android:horizontalGap="5%p"
+            android:keyEdgeFlags="right"
+            android:keyWidth="0%"
+            />
     </Row>
     <Row>
         <Key
@@ -77,7 +83,7 @@
             android:isSticky="true"
             android:keyEdgeFlags="left"
             android:keyIcon="@mipmap/keyboard_shift"
-            android:keyWidth="14.399998%p" /><!--13.099998%p-->
+            android:keyWidth="15%p" /><!--13.099998%p-->
         <Key
             android:codes="122"
             android:keyLabel="z" />
@@ -104,7 +110,7 @@
             android:isRepeatable="true"
             android:keyEdgeFlags="right"
             android:keyIcon="@mipmap/keyboard_delete"
-            android:keyWidth="14.399998%p" /><!--13.099998%p-->
+            android:keyWidth="15%p" /><!--13.099998%p-->
     </Row>
     <Row android:rowEdgeFlags="bottom">
 
@@ -116,6 +122,6 @@
             android:codes="-3"
             android:keyEdgeFlags="right"
             android:keyLabel="完成"
-            android:keyWidth="22.500004%p" /><!--18.000004%p-->
+            android:keyWidth="24.700002%p" /><!--18.000004%p-->
     </Row>
 </Keyboard>

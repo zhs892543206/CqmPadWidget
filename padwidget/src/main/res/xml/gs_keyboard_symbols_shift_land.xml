@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
-    android:horizontalGap="4dip"
+    android:horizontalGap="1dip"
     android:keyHeight="@dimen/key_height_land"
-    android:keyWidth="10.6%p"
-    android:verticalGap="4dip"><!--10.150002%p horizontalGap，verticalGap是两个按钮之间的距离-->
+    android:keyWidth="11.11%p"
+    android:verticalGap="1dip"><!--10.150002%p horizontalGap，verticalGap是两个按钮之间的距离-->
     <Row>
         <Key
             android:codes="126"
@@ -94,7 +94,7 @@
             android:isRepeatable="true"
             android:keyEdgeFlags="right"
             android:keyIcon="@mipmap/keyboard_delete"
-            android:keyWidth="21.3%p" /><!--20.639998%p-->
+            android:keyWidth="22.2%p" /><!--20.639998%p-->
     </Row>
     <Row android:rowEdgeFlags="bottom">
         <!--<Key android:keyWidth="20.000004%p" android:codes="-2" android:keyIcon="@drawable/sym_keyboard_shift" /> -->
@@ -123,6 +123,6 @@
             android:codes="-3"
             android:keyEdgeFlags="right"
             android:keyLabel="完成"
-            android:keyWidth="21.3%p" /><!--20.630004%p-->
+            android:keyWidth="22.2%p" /><!--20.630004%p-->
     </Row>
 </Keyboard>

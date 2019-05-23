@@ -16,6 +16,7 @@ import com.ewell.padwidget.callback.LicCallback;
 import com.ewell.padwidget.date.DatetimePickerUtil;
 import com.ewell.padwidget.dialog.LicDialog;
 import com.ewell.padwidget.dialog.WpDialog;
+import com.ewell.padwidget.keyboard.security.DisplayUtils;
 import com.ewell.padwidget.keyboard.security.KeyboardType;
 import com.ewell.padwidget.keyboard.security.SecurityConfigure;
 import com.ewell.padwidget.keyboard.security.SecurityKeyboard;
@@ -37,13 +38,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RelativeLayout relativeLayout = findViewById(R.id.main_rly);
-        SecurityConfigure configure = new SecurityConfigure()
-                .setDefaultKeyboardType(KeyboardType.NUMBER)
-                .setLetterEnabled(false);
-        securityKeyboard = new SecurityKeyboard(relativeLayout, configure);
-        EditText editText = findViewById(R.id.frag_cccabinet_login_loginname);
-        //securityKeyboard.setLocation(editText, Gravity.RIGHT, editText.getWidth(), 0);
+
         final TextView textView = findViewById(R.id.content);
         final String[] texts = {"dfa", "分科分拣"
                 , "说的方式范德萨", "e3"};
@@ -60,7 +55,15 @@ public class MainActivity extends Activity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-
+                        RelativeLayout relativeLayout = findViewById(R.id.main_rly);
+                        SecurityConfigure configure = new SecurityConfigure()
+                                .setDefaultKeyboardType(KeyboardType.LETTER)
+                                .setLetterEnabled(false);
+                        //relativeLayout右侧不全屏
+                        securityKeyboard = new SecurityKeyboard(relativeLayout, configure,Gravity.RIGHT|Gravity.BOTTOM, DisplayUtils.getScreenWidth(MainActivity.this)-relativeLayout.getWidth());
+                        //securityKeyboard = new SecurityKeyboard(relativeLayout, configure);全屏宽度
+                        EditText editText = findViewById(R.id.frag_cccabinet_login_loginname);
+                        //securityKeyboard.setLocation(relativeLayout, Gravity.RIGHT|Gravity.BOTTOM, 0, 0, DisplayUtils.getScreenWidth(MainActivity.this)-relativeLayout.getWidth());
 
                         setMenuPop(textView, texts, null);
                     }
