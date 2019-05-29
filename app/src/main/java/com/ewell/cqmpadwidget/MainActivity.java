@@ -34,11 +34,18 @@ import java.util.List;
 public class MainActivity extends Activity {
     WpDialog wpDialog;
     SecurityKeyboard securityKeyboard;
+    RelativeLayout relativeLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        relativeLayout = findViewById(R.id.main_rly);
+        SecurityConfigure configure = new SecurityConfigure()
+                .setDefaultKeyboardType(KeyboardType.LETTER)
+                .setLetterEnabled(false);
+        //relativeLayout右侧不全屏
+        //securityKeyboard = new SecurityKeyboard(relativeLayout, configure,Gravity.RIGHT|Gravity.BOTTOM, DisplayUtils.getScreenWidth(MainActivity.this)-relativeLayout.getWidth());
+        securityKeyboard = new SecurityKeyboard(relativeLayout, configure);//全屏宽度
         final TextView textView = findViewById(R.id.content);
         final String[] texts = {"dfa", "分科分拣"
                 , "说的方式范德萨", "e3"};
@@ -55,15 +62,8 @@ public class MainActivity extends Activity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        RelativeLayout relativeLayout = findViewById(R.id.main_rly);
-                        SecurityConfigure configure = new SecurityConfigure()
-                                .setDefaultKeyboardType(KeyboardType.LETTER)
-                                .setLetterEnabled(false);
-                        //relativeLayout右侧不全屏
-                        securityKeyboard = new SecurityKeyboard(relativeLayout, configure,Gravity.RIGHT|Gravity.BOTTOM, DisplayUtils.getScreenWidth(MainActivity.this)-relativeLayout.getWidth());
-                        //securityKeyboard = new SecurityKeyboard(relativeLayout, configure);全屏宽度
                         EditText editText = findViewById(R.id.frag_cccabinet_login_loginname);
-                        //securityKeyboard.setLocation(relativeLayout, Gravity.RIGHT|Gravity.BOTTOM, 0, 0, DisplayUtils.getScreenWidth(MainActivity.this)-relativeLayout.getWidth());
+                        //securityKeyboard.setLocation(relativeLayout, Gravity.RIGHT|Gravity.BOTTOM,0,0, DisplayUtils.getScreenWidth(MainActivity.this)-relativeLayout.getWidth());
 
                         setMenuPop(textView, texts, null);
                     }

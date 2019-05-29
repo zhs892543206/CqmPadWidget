@@ -67,7 +67,10 @@ public class SecurityKeyboard extends PopupWindow {
     private ArrayList<String> nums_ = new ArrayList<>();
 
     private SecurityEditText curEditText;
-
+    private View parent;//父类控件
+    private int gravity;//显示位置
+    private int locationX;
+    int locationY;
     private LinearLayout keyboardViewLy;
     private SecurityConfigure configuration;
 
@@ -77,7 +80,7 @@ public class SecurityKeyboard extends PopupWindow {
         this(parentLayout, securityConfigure, -1, DisplayUtils.getScreenWidth(parentLayout.getContext()));
     }
     @SuppressLint("ClickableViewAccessibility")
-    public SecurityKeyboard(final ViewGroup parentLayout, SecurityConfigure securityConfigure, int layoutGravity, final int width) {
+    public SecurityKeyboard(final ViewGroup parentLayout, SecurityConfigure securityConfigure, int layoutGravity, int width) {
         super(parentLayout.getContext());
         if (securityConfigure == null) {
             configuration = new SecurityConfigure();
@@ -237,10 +240,7 @@ public class SecurityKeyboard extends PopupWindow {
         }
     }
 
-    private View parent;
-    private int gravity;
-    private int locationX;
-    int locationY;
+
     /**
      * 设置键盘显示位置
      * @param parent
@@ -427,15 +427,15 @@ public class SecurityKeyboard extends PopupWindow {
      */
     private void showKeyboard(View view) {
         int realHeight = 0;
-        int yOff;
+        int yOff=0;
 
-        yOff = realHeight - DisplayUtils.dp2px(mContext, 231);
-
-        if (DisplayUtils.dp2px(mContext, 236) > (int) (DisplayUtils
-                .getScreenHeight(mContext) * 3.0f / 5.0f)) {
-            yOff = DisplayUtils.getScreenHeight(mContext)
-                    - DisplayUtils.dp2px(mContext, 199);
-        }
+//        yOff = realHeight - DisplayUtils.dp2px(mContext, 231);
+//
+//        if (DisplayUtils.dp2px(mContext, 236) > (int) (DisplayUtils
+//                .getScreenHeight(mContext) * 3.0f / 5.0f)) {
+//            yOff = DisplayUtils.getScreenHeight(mContext)
+//                    - DisplayUtils.dp2px(mContext, 199);
+//        }
         Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.securitykeyboard_push_bottom_in);
         if(parent==null || gravity<=0) {
             showAtLocation(view, Gravity.BOTTOM | Gravity.LEFT, 0, yOff);
