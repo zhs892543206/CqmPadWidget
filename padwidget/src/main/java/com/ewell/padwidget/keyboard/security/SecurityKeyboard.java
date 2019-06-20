@@ -74,13 +74,17 @@ public class SecurityKeyboard extends PopupWindow {
     private LinearLayout keyboardViewLy;
     private SecurityConfigure configuration;
 
-    private ViewGroup mParentLayout;
+    private View mParentLayout;
     private Context mContext;
-    public SecurityKeyboard(final ViewGroup parentLayout, SecurityConfigure securityConfigure) {
-        this(parentLayout, securityConfigure, -1, DisplayUtils.getScreenWidth(parentLayout.getContext()));
+    public SecurityKeyboard(final View parentLayout, SecurityConfigure securityConfigure) {
+        this(parentLayout, parentLayout, securityConfigure, -1, DisplayUtils.getScreenWidth(parentLayout.getContext()));
+    }
+
+    public SecurityKeyboard(final View parentLayout,SecurityConfigure securityConfigure, int layoutGravity, int width) {
+        this(parentLayout, parentLayout, securityConfigure, layoutGravity, width);
     }
     @SuppressLint("ClickableViewAccessibility")
-    public SecurityKeyboard(final ViewGroup parentLayout, SecurityConfigure securityConfigure, int layoutGravity, int width) {
+    public SecurityKeyboard(final View parentLayout, View locationLayout, SecurityConfigure securityConfigure, int layoutGravity, int width) {
         super(parentLayout.getContext());
         if (securityConfigure == null) {
             configuration = new SecurityConfigure();
@@ -213,12 +217,16 @@ public class SecurityKeyboard extends PopupWindow {
 
         switchKeyboardType(configuration.getDefaultKeyboardType(),
                 configuration.getSelectedColor(), configuration.getUnselectedColor());
+        List<View> children = new ArrayList<>();
+        if(parentLayout instanceof ViewGroup) {
+            children = getAllChildren(parentLayout);
+        }else{
+            children.add(parentLayout);
+        }
 
-
-        List<View> children = getAllChildren(parentLayout);
         for (int i = 0; i < children.size(); i++) {
             View view = children.get(i);
-            if (view instanceof SecurityEditText||(view.getParent()!=null && view.getParent() instanceof  SecurityEditText)) {
+            if (view instanceof SecurityEditText || (view.getParent() != null && view.getParent() instanceof SecurityEditText)) {
                 SecurityEditText securityEditText = (SecurityEditText) view;
                 securityEditText.setOnTouchListener(new View.OnTouchListener() {
                     @Override
