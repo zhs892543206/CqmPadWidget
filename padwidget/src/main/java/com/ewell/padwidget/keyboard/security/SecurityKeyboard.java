@@ -84,7 +84,7 @@ public class SecurityKeyboard extends PopupWindow {
         this(parentLayout, parentLayout, securityConfigure, layoutGravity, width);
     }
     @SuppressLint("ClickableViewAccessibility")
-    public SecurityKeyboard(final View parentLayout, View locationLayout, SecurityConfigure securityConfigure, int layoutGravity, int width) {
+    public SecurityKeyboard(final View parentLayout, final View locationLayout, SecurityConfigure securityConfigure, int layoutGravity, int width) {
         super(parentLayout.getContext());
         if (securityConfigure == null) {
             configuration = new SecurityConfigure();
@@ -239,7 +239,7 @@ public class SecurityKeyboard extends PopupWindow {
                             Editable editable = curEditText.getText();
                             Selection.setSelection(editable, editable.length());
                             hideSystemKeyboard(v);
-                            showKeyboard(mParentLayout);
+                            showKeyboard(locationLayout);
                         }
                         return true;
                     }
