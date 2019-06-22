@@ -228,7 +228,7 @@ public abstract class AbstractWheelTextAdapter extends AbstractWheelAdapter {
     protected void configureTextView(TextView view) {
         view.setTextColor(context.getResources().getColor(R.color.ccc_black_textcolor));
         view.setGravity(Gravity.CENTER);
-        view.setTextSize(context.getResources().getDimensionPixelSize(R.dimen.ccc_widget_textsize));
+        view.setTextSize(context.getResources().getDimensionPixelSize(R.dimen.wheel_textsize));
        
         view.setEllipsize(TextUtils.TruncateAt.END);
         view.setLines(1);

@@ -67,7 +67,7 @@
             android:layout_height="fill_parent"
             android:layout_weight="0.01"
             android:background="#E9E2DD"
-            android:textSize="@dimen/ccc_widget_textsize"/>
+            android:textSize="@dimen/wheel_textsize"/>
 		<Button
             android:id="@+id/set"
             android:layout_width="0dip"

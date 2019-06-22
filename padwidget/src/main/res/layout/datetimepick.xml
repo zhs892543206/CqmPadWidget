@@ -29,7 +29,7 @@
             	android:text="年"  
             	android:gravity="center"
                 android:layout_weight="0.9"
-                android:textSize="@dimen/ccc_widget_textsize_small"/>
+                android:textSize="@dimen/wheel_textsize"/>
 
             <TextView
                 android:id="@+id/month_l"
@@ -50,7 +50,7 @@
                 android:layout_marginTop="1dip"
                 android:text="日"  
                 android:gravity="center"
-                android:textSize="@dimen/ccc_widget_textsize_small"
+                android:textSize="@dimen/wheel_textsize"
                 android:layout_weight="1" />
             
             <TextView
@@ -74,7 +74,7 @@
                 android:text="分"     
                 android:gravity="center" 
                 android:layout_weight="1"
-                android:textSize="@dimen/ccc_widget_textsize_small"/>
+                android:textSize="@dimen/wheel_textsize"/>
 
             <TextView
                 android:id="@+id/secs_l"

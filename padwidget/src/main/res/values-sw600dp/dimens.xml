@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!--最终显示大小由主程序决定-->
     <dimen name ="ccc_widget_textsize">20sp</dimen>
     <dimen name="ccc_widget_height">48dp</dimen>
     <dimen name ="ccc_widget_textsize_small">12sp</dimen>
@@ -15,4 +15,5 @@
     <dimen name="vertical_margin">16dp</dimen>
 
     <dimen name="ccc_confrimbtn_radius">8dp</dimen>
+    <dimen name ="wheel_textsize">20sp</dimen>
 </resources>

@@ -394,14 +394,14 @@ public class TimeWheelView extends View {
 					| Paint.FAKE_BOLD_TEXT_FLAG);
 			//itemsPaint.density = getResources().getDisplayMetrics().density;
 
-			itemsPaint.setTextSize(mContext.getResources().getDimensionPixelSize(R.dimen.ccc_widget_textsize));
+			itemsPaint.setTextSize(mContext.getResources().getDimensionPixelSize(R.dimen.wheel_textsize));
 		}
 
 		if (valuePaint == null) {
 			valuePaint = new TextPaint(Paint.ANTI_ALIAS_FLAG
 					| Paint.FAKE_BOLD_TEXT_FLAG | Paint.DITHER_FLAG);
 			//valuePaint.density = getResources().getDisplayMetrics().density;
-			valuePaint.setTextSize(mContext.getResources().getDimensionPixelSize(R.dimen.ccc_widget_textsize));
+			valuePaint.setTextSize(mContext.getResources().getDimensionPixelSize(R.dimen.wheel_textsize));
 			valuePaint.setShadowLayer(0.1f, 0, 0.1f, 0xFFC0C0C0);
 		}
 
