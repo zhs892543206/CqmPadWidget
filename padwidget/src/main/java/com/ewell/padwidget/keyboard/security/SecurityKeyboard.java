@@ -250,10 +250,10 @@ public class SecurityKeyboard extends PopupWindow {
         }
     }
 
-    interface SecurityKeyBoardInf{
+    public interface SecurityKeyBoardInf{
         public void clickDeal();
     }
-    public static SecurityKeyBoardInf securityKeyBoardInf;
+    public SecurityKeyBoardInf securityKeyBoardInf;
     public void setOnClickDeal(SecurityKeyBoardInf securityKeyBoardInf){
         this.securityKeyBoardInf = securityKeyBoardInf;
     }
