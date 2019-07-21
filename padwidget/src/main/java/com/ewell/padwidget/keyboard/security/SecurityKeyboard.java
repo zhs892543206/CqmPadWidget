@@ -250,6 +250,13 @@ public class SecurityKeyboard extends PopupWindow {
         }
     }
 
+    interface SecurityKeyBoardInf{
+        public void clickDeal();
+    }
+    SecurityKeyBoardInf securityKeyBoardInf;
+    public void setOnClickDeal(SecurityKeyBoardInf securityKeyBoardInf){
+        this.securityKeyBoardInf = securityKeyBoardInf;
+    }
 
     /**
      * 设置键盘显示位置
@@ -338,6 +345,10 @@ public class SecurityKeyboard extends PopupWindow {
 
         @Override
         public void onKey(int primaryCode, int[] keyCodes) {
+            //点击键盘做的额外处理
+            if(securityKeyBoardInf!=null){
+                securityKeyBoardInf.clickDeal();
+            }
             Editable editable = curEditText.getText();
             int start = curEditText.getSelectionStart();
             if (primaryCode == Keyboard.KEYCODE_CANCEL) {

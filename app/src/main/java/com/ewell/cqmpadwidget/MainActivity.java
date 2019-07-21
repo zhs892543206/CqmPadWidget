@@ -23,7 +23,6 @@ import com.ewell.padwidget.keyboard.security.SecurityKeyboard;
 import com.ewell.padwidget.popupwindow.MenuPopwindow;
 import com.ewell.padwidget.popupwindow.MyPopMenu;
 
-
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
